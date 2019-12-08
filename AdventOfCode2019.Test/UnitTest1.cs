@@ -4,7 +4,7 @@ using AdventOfCode2019;
 namespace AdventOfCode2019.Test
 {
     [TestClass]
-    public class UnitTest1
+    public class Day1Tests
     {
         [TestMethod]
         public void TestReadFile()
@@ -48,4 +48,52 @@ namespace AdventOfCode2019.Test
             Assert.AreEqual(expected, day01.CalcFuelByMassAndFuel(mass));
         }
     }
+
+    [TestClass]
+    public class Day2Tests
+    {
+        [TestMethod]
+        public void TestReadFile()
+        {
+            TextFileReader tfr = new TextFileReader("input2.txt");
+
+            string buf = tfr.ToString();
+
+            Assert.AreEqual(31, buf.Length);
+        }
+
+        [TestMethod]
+        public void TestRunExample1()
+        {
+            Day02 day02 = new Day02();
+
+            string codes = "1,9,10,3,2,3,11,0,99,30,40,50";
+
+            day02.LoadProgram(codes);
+            day02.RunProgram();
+                
+            Assert.AreEqual<string>("3500,9,10,70,2,3,11,0,99,30,40,50", day02.GetIntegersAsString());
+
+
+        }
+
+
+        [TestMethod]
+        public void TestRunExample2()
+        {
+            Day02 day02 = new Day02();
+
+            string codes = "1,1,1,4,99,5,6,0,99";
+
+            day02.LoadProgram(codes);
+            day02.RunProgram();
+
+            Assert.AreEqual<string>("30,1,1,4,2,5,6,0,99", day02.GetIntegersAsString());
+
+
+        }
+
+    }
 }
+
+
